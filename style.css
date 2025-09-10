@@ -1,0 +1,314 @@
+:root {
+  --cloud-w: 260px;
+  --angle-of-star: 10deg;
+  --vignette-inner: 30%;
+  --vignette-outer: 40%;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#gradient-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    background: linear-gradient(
+        to bottom,
+        #191970 0%,
+        #daacff 33.3333%,
+        #ffe7da 66.6666%,
+        #84c2fc 100%
+    );
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 20vh;
+  max-height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
+  color: white;
+  font-family: system-ui, sans-serif;
+}
+
+.title {
+  padding-top: 9vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.end { 
+  overflow: visible; 
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: -20vh;
+}
+
+.center-box {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+}
+
+.center-box ul {
+  display: block;
+  margin: 0 auto;
+  padding-left: 5rem;
+  text-align: left;
+}
+
+ul {
+  list-style-position: inside;
+  max-width: 425px;
+  list-style-type: "✨  ";
+}
+
+p {
+    max-width: 425px;
+    margin: 0 auto;
+}
+
+#supporting-img {
+  display: block;
+  margin: 0 auto;
+}
+
+.light-foreground { 
+  color: #111; 
+}
+
+.maimai-images {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+img.website-img {
+  display: block;
+  margin: 0 auto;
+}
+
+/* ---------- Shooting Star ---------- */
+
+.shooting-star-wrapper {
+  max-height: 20vh;
+  margin-bottom: 40rem;
+}
+
+.shooting-star {
+  max-width: 80vw;
+  scale: 10%;
+}
+
+.shooting-star1 {
+  padding-top: 50vh;
+  animation: 3s linear 0s infinite running shootingStar;
+}
+
+.shooting-star2 {
+  padding-top: -100vh;
+  animation: 6s linear 0s infinite running shootingStar;
+}
+
+@keyframes shootingStar {
+  0%   { transform: translateX(-500%) rotate(var(--angle-of-star)); opacity: 0; rotate: -30deg}
+  10%  { transform: translateX(-400%) rotate(calc(var(--angle-of-star))); opacity: 1; }
+  50%  { transform: translateX(0%) rotate(calc(var(--angle-of-star) + 5deg)); opacity: 1; }
+  90%  { transform: translateX(400%) rotate(calc(var(--angle-of-star) + 10deg)); opacity: 1; }
+  100% { transform: translateX(500%) rotate(var(--angle-of-star)); opacity: 0; rotate: 30deg}
+}
+
+/* DEL */
+
+.star {
+  width: 50vw;
+}
+
+#star-top {
+  margin-bottom: 6rem;
+}
+
+#star-bottom {
+  transform: scaleY(-1);
+  margin-top: 6rem;
+}
+
+/* ---------- Cat Animation ---------- */
+
+.cat {
+  position: relative; 
+  margin: 0 auto;
+  width: 150px;
+  height: 150px;
+  background: url('images/cat-sleep.png');
+  cursor: pointer;
+}
+
+.cat.animate {
+  animation: angryCat 3s linear backwards;
+}
+
+@keyframes angryCat {
+  0% {
+    background-image: url('images/cat-awake.png');
+    left: 0%;
+    rotate: 0;
+  }
+  25% {
+    left: 25%;
+    rotate: 180deg;
+  }
+  50% {
+    left: 0%;
+  }
+  75% {
+    left: -25%;
+    rotate: -180deg;
+    scale: 2000%;
+  }
+  99.99% {
+    background-image: url('images/cat-awake.png')
+  }
+}
+
+.warning {
+  font-style: italic;
+  color: red;
+  padding-top: 1.5rem;
+}
+
+/* ---------- Cloud Movement ---------- */
+
+.stage {
+  position: relative;
+  top: 5vh;
+  bottom: 10vh;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+}
+
+.cloud {
+  width: var(--cloud-w);
+  position: absolute;
+  max-width: 40vw;
+}
+
+.cloud1 {
+  scale: 200%;
+  z-index: 1;
+  animation: slide1 auto linear both;
+  animation-timeline: scroll(root);
+}
+
+.cloud2 {
+  scale: 150%;
+  z-index: 2;
+  padding-top: 5rem;
+  animation: slide2 auto linear both;
+  animation-timeline: scroll(root);
+}
+
+.cloud3 {
+  scale: 100%;
+  z-index: 3;
+  padding-bottom: 2;
+  animation: slide3 auto linear both;
+  animation-timeline: scroll(root);
+}
+
+@keyframes slide1 {
+  from {
+    transform: translateX(calc(-0.5 * var(--cloud-w)));
+  }
+  to {
+    transform: translateX(calc(75vw - var(--cloud-w)));
+  }
+}
+
+@keyframes slide2 {
+  from {
+    transform: translateX(calc(-1.5 * var(--cloud-w)));
+  }
+  to {
+    transform: translateX(calc(125vw - var(--cloud-w)));
+  }
+}
+
+@keyframes slide3 {
+  from {
+    transform: translateX(calc(-3 * var(--cloud-w)));
+  }
+  to {
+    transform: translateX(calc(200vw - var(--cloud-w)));
+  }
+}
+
+/* ---------- The Sun ---------- */
+
+.sun-wrap {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 20vh;
+  margin-bottom: -20vh;
+  padding-top: 10vh;
+  height: 30vh;
+  font-family: system-ui, sans-serif;
+}
+
+.sun {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: auto;
+  padding-top: 10vh;
+  transform: scale(1.1);
+  transition: transform 1s ease-in-out; /* starts slow, speeds up in middle, slows down at end */
+}
+
+.sun:hover {
+  transform: scale(1.1) translateY(-6rem);
+}
+
+.hint {
+  text-align: center;
+  font-style: italic;
+  font-size: 0.5rem;
+  color: yellow;
+}
+
+/* ---------- Vignette Overlay ---------- */
+
+.vignette {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at center,
+    rgba(0,0,0,0) var(--vignette-inner),
+    rgba(0,0,0,0.7) var(--vignette-outer)
+  );
+  scale: 150%;
+  animation: vignetteFade auto linear none;
+  animation-timeline: scroll(root);
+}
+
+@keyframes vignetteFade {
+  0% { opacity: 1; }
+  90% { opacity: 0.5; }
+  100% { opacity: 0; }
+}
