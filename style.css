@@ -128,21 +128,6 @@ img.website-img {
   100% { transform: translateX(500%) rotate(var(--angle-of-star)); opacity: 0; rotate: 30deg}
 }
 
-/* DEL */
-
-.star {
-  width: 50vw;
-}
-
-#star-top {
-  margin-bottom: 6rem;
-}
-
-#star-bottom {
-  transform: scaleY(-1);
-  margin-top: 6rem;
-}
-
 /* ---------- Cat Animation ---------- */
 
 .cat {
