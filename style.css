@@ -12,23 +12,6 @@ html, body {
     box-sizing: border-box;
 }
 
-#gradient-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: -1;
-    background: linear-gradient(
-        to bottom,
-        #191970 0%,
-        #daacff 33.3333%,
-        #ffe7da 66.6666%,
-        #84c2fc 100%
-    );
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-}
-
 .section {
   display: flex;
   align-items: center;
@@ -96,6 +79,25 @@ p {
 img.website-img {
   display: block;
   margin: 0 auto;
+}
+
+/* ---------- Gradient Background ---------- */
+
+#gradient-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    background: linear-gradient(
+        to bottom,
+        #191970 0%,
+        #daacff 33.3333%,
+        #ffe7da 66.6666%,
+        #84c2fc 100%
+    );
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
 /* ---------- Shooting Star ---------- */
